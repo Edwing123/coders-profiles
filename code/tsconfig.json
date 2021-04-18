@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {                      
+    "target": "ESNext",                                
+    "module": "commonjs",                         
+    "sourceMap": true,                           
+    "outDir": "./bin",            
+    "strict": true,               
+    "noImplicitAny": true,        
+    "strictNullChecks": true,     
+    "strictFunctionTypes": true,  
+  }
+}
