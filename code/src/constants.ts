@@ -1,10 +1,15 @@
-// config and build process
-export const configPath = 'config.yaml'
+import { Env, EnvItem } from './types'
 
-export const dev = {
-  outdir: 'dev'
-}
+export const CONFIG_FILE_PATH = 'config.yaml'
 
-export const prod = {
-  outdir: 'dist'
+export const ENVIRONMENT: Env = {
+  dev: {
+    name: 'dev',
+    outdir: 'dev'
+  },
+
+  prod: {
+    name: 'prod',
+    outdir: 'dist'
+  }
 }
