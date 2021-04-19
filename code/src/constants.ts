@@ -1,4 +1,4 @@
-import { Env, EnvItem } from './types'
+import { Env } from './types'
 
 export const CONFIG_FILE_PATH = 'config.yaml'
 
