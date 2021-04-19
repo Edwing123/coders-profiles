@@ -15,14 +15,14 @@ import { Config, EnvItem } from './types'
   const isDev = mode === 'dev'
 
   const env: EnvItem = choose(isDev, ENVIRONMENT.dev, ENVIRONMENT.prod)
-  const dependenciesAlias = isDev ? aliases.dev : aliases.prod
+  const dependenciesAliases = aliases.dependencies
   const viewsAliases = aliases.views
 
   // prepare output dirs
   const outdir = env.outdir
   const outdirExists = await fs.pathExists(outdir)
 
-  // if does not exists, created, otherwise empty it.
+  // if does not exists, create it, otherwise empty it.
   if (not(outdirExists)) {
     fs.mkdir(outdir)
   } else {
