@@ -4,6 +4,9 @@
   "description": "Create user profile page with data from yaml files",
   "author": "Edwing123 <egarciavalle2014@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "node ./bin/main.js"
+  },
   "devDependencies": {
     "@types/ejs": "^3.0.6",
     "@types/fs-extra": "^9.0.11",
