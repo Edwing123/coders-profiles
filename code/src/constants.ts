@@ -2,6 +2,8 @@ import { Env } from './types'
 
 export const CONFIG_FILE_PATH = 'config.yaml'
 
+export const VIEWS_PAGES = 'src/views/pages'
+
 export const ENVIRONMENT: Env = {
   dev: {
     name: 'dev',
