@@ -1,20 +1,35 @@
 type Mode = 'dev' | 'prod'
 
 export type Config = {
-  mode: Mode,
+  mode: Mode
   data: string
 }
 
 export type EnvItem = {
-  outdir: string,
+  outdir: string
   name: Mode
 }
 
 export type Env = {
-  dev: EnvItem,
+  dev: EnvItem
   prod: EnvItem
 }
 
 export type Alias = {
   [key: string]: string
+}
+
+type SocialMedia = {
+  name: string
+  url: string
+}
+
+export type UserMeta = {
+  name: string
+  age: number
+  country: string
+  role: string
+  socialMedia: SocialMedia[],
+  bio: string[],
+  skills: string[]
 }

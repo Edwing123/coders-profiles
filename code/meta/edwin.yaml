@@ -1,0 +1,17 @@
+name: Edwin Evenor Garcia Valle
+age: 20
+country: Nicaragua
+role: Fronted Developer
+
+socialMedia:
+  -
+    name: github
+    url: https://github.com/Edwing123
+
+bio:
+  - >
+    This is my rather simple biography.
+
+skills:
+  - >
+    I have worked with some tools.
