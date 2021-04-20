@@ -15,7 +15,8 @@ import { Config, EnvItem } from './types'
   const isDev = mode === 'dev'
 
   const env: EnvItem = choose(isDev, ENVIRONMENT.dev, ENVIRONMENT.prod)
-  const dependenciesAliases = aliases.dependencies
+  const { dev: devAliases, prod: prodAliases } = aliases.dependencies
+  const dependenciesAliases = choose(isDev, devAliases, prodAliases)
   const viewsAliases = aliases.views
 
   // prepare output dirs
