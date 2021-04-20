@@ -1,11 +1,12 @@
 import * as fs from 'fs-extra'
 import * as ejs from 'ejs'
 import * as yaml from 'yaml'
+import * as path from 'path'
 
 import * as aliases from './aliases'
-import { CONFIG_FILE_PATH, ENVIRONMENT } from './constants'
-import { choose, not } from './utils'
-import { Config, EnvItem } from './types'
+import { CONFIG_FILE_PATH, ENVIRONMENT, VIEWS_PAGES } from './constants'
+import { choose, not, resolveAliases, print } from './utils'
+import { Config, EnvItem, UserMeta } from './types'
 
 // core
 ;(async () => {
@@ -25,8 +26,93 @@ import { Config, EnvItem } from './types'
 
   // if does not exist, create it, otherwise empty it.
   if (not(outdirExists)) {
-    fs.mkdir(outdir)
+    await fs.mkdir(outdir)
   } else {
-    fs.emptyDir(outdir)
+    await fs.emptyDir(outdir)
+  }
+
+  // shared views util functions
+  const utils = {
+    resolve: resolveAliases({ ...viewsAliases, ...dependenciesAliases })
+  }
+
+  /**
+   * * create views structure and parse views
+   *  dev
+   *    - index.html
+   *    - profiles
+   *      - edwin.html
+   *
+   *  prod
+   *    - index.html
+   *    - profiles
+   *      - edwin.html
+   *    - dependencies
+   *      - css
+   *      - js
+   *
+   * * NOTE: there may be more dependencies
+   */
+  const [[indexViewName, indexViewPath], [_, profileViewPath]] = [
+    'index',
+    'profile'
+  ].map((viewName) => [viewName, `${VIEWS_PAGES}/${viewName}.ejs`])
+
+  // * generating index page
+  const indexViewTemplate = await fs.readFile(indexViewPath, 'utf8')
+  const parsedIndexView = ejs.render(indexViewTemplate, {
+    ...utils
+  })
+
+  // * generating profiles
+  // read and compile profile template
+  const profileViewTemplate = await fs.readFile(profileViewPath, 'utf8')
+  const profileViewGenerator = ejs.compile(profileViewTemplate)
+
+  // get data files path and the corresponding name of each file (without the extension)
+  const dataNamesAndPath = (await fs.readdir(config.data))
+    .filter((path) => path.endsWith('.yaml'))
+    .map((path) => [path.replace('.yaml', ''), `${config.data}/${path}`])
+
+  // read the data from the files path and also return its corresponding name
+  const namesAndRawData = await Promise.all(
+    dataNamesAndPath.map(async ([name, path]) => {
+      const rawData = await fs.readFile(path, 'utf8')
+      return [name, rawData]
+    })
+  )
+
+  // parse with yaml the raw data, and also return its name
+  const namesAndData: [
+    string,
+    UserMeta
+  ][] = namesAndRawData.map(([name, raw]) => [name, yaml.parse(raw)])
+
+  // render the profiles and return an object with information
+  // about the each rendered template
+  // for example, name is be the name of the output file
+  const profilesViewNodes = namesAndData.map(([name, user]) => {
+    const renderedProfileView = profileViewGenerator({
+      ...utils,
+      user
+    })
+
+    return {
+      name,
+      body: renderedProfileView
+    }
+  })
+
+  // * files will be created based on the structure of this tree
+  const tree = {
+    [indexViewName]: {
+      isView: true,
+      body: parsedIndexView
+    },
+
+    profiles: {
+      isView: false,
+      body: [...profilesViewNodes]
+    }
   }
 })()
