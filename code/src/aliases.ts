@@ -2,14 +2,14 @@ import * as path from 'path'
 
 export const dependencies = {
   dev: {
-    '@css': './src/dependencies/css',
-    '@js': './src/dependencies/js',
-    '@assets': './src/dependencies/assets'
+    '@css': '/src/dependencies/css',
+    '@js': '/src/dependencies/js',
+    '@assets': '/src/dependencies/assets'
   },
   prod: {
-    '@css': 'dependencies/css',
-    '@js': 'dependencies/js',
-    '@assets': 'dependencies/assets'
+    '@css': '/dependencies/css',
+    '@js': '/dependencies/js',
+    '@assets': '/dependencies/assets'
   }
 }
 
