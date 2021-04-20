@@ -23,7 +23,7 @@ import { Config, EnvItem } from './types'
   const outdir = env.outdir
   const outdirExists = await fs.pathExists(outdir)
 
-  // if does not exists, create it, otherwise empty it.
+  // if does not exist, create it, otherwise empty it.
   if (not(outdirExists)) {
     fs.mkdir(outdir)
   } else {
