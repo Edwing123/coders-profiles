@@ -14,3 +14,7 @@ export type Env = {
   dev: EnvItem,
   prod: EnvItem
 }
+
+export type Alias = {
+  [key: string]: string
+}
