@@ -53,10 +53,9 @@ import { Config, EnvItem, UserMeta } from './types'
    *
    * * NOTE: there may be more dependencies
    */
-  const [[indexViewName, indexViewPath], [_, profileViewPath]] = [
-    'index',
-    'profile'
-  ].map((viewName) => [viewName, `${VIEWS_PAGES}/${viewName}.ejs`])
+  const [indexViewPath, profileViewPath] = ['index', 'profile'].map(
+    (viewName) => `${VIEWS_PAGES}/${viewName}.ejs`
+  )
 
   // * generating index page
   const indexViewTemplate = await fs.readFile(indexViewPath, 'utf8')
@@ -105,13 +104,11 @@ import { Config, EnvItem, UserMeta } from './types'
 
   // * files will be created based on the structure of this tree
   const tree = {
-    [indexViewName]: {
-      isView: true,
+    index: {
       body: parsedIndexView
     },
 
     profiles: {
-      isView: false,
       body: [...profilesViewNodes]
     }
   }
