@@ -31,6 +31,14 @@ import { Config, EnvItem, UserMeta } from './types'
     await fs.emptyDir(outdir)
   }
 
+  // in prod mode all dependencies will be copied to outdir
+  if (config.mode === 'prod') {
+    // create dependencies dir
+    const dependenciesPath = `${env.outdir}/dependencies`
+    await fs.mkdir(dependenciesPath)
+    await fs.copy('src/dependencies', dependenciesPath)
+  }
+
   // shared views util functions
   const utils = {
     resolve: resolveAliases({ ...viewsAliases, ...dependenciesAliases })
@@ -112,4 +120,18 @@ import { Config, EnvItem, UserMeta } from './types'
       body: [...profilesViewNodes]
     }
   }
+
+  // create index.html based on the index entry of render tree
+  const indexPagePath = `${env.outdir}/index.html`
+  await fs.writeFile(indexPagePath, tree.index.body)
+
+  // create profiles directory for profiles
+  const profilesDirPath = `${env.outdir}/profiles`
+  await fs.mkdir(profilesDirPath)
+
+  // write every profile page to /profiles
+  tree.profiles.body.forEach(async (profile) => {
+    const profilePagePath = `${env.outdir}/profiles/${profile.name}.html`
+    await fs.writeFile(profilePagePath, profile.body)
+  })
 })()
