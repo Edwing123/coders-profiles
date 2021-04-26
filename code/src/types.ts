@@ -24,11 +24,14 @@ type SocialMedia = {
   url: string
 }
 
+type Pictures = {
+  cover: string
+  portrait: string
+}
+
 export type UserMeta = {
   name: string
-  age: number
-  country: string
-  role: string
+  pictures: Pictures
   socialMedia: SocialMedia[],
   bio: string[],
   skills: string[]
