@@ -1,7 +1,8 @@
 name: Edwin Evenor Garcia Valle
-age: 20
-country: Nicaragua
-role: Fronted Developer
+
+pictures:
+  cover: edwin.cover.png
+  portrain: edwin.portrait.png
 
 socialMedia:
   -
