@@ -31,6 +31,7 @@ type Pictures = {
 
 export type UserMeta = {
   name: string
+  username: string
   pictures: Pictures
   socialMedia: SocialMedia[],
   bio: string[],
