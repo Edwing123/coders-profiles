@@ -1,15 +1,20 @@
 import * as path from 'path'
+import { DEV_DEPENDENDIES_BASE_PATH } from './constants'
+
+const base = DEV_DEPENDENDIES_BASE_PATH
 
 export const dependencies = {
   dev: {
-    '@css': '/src/dependencies/css',
-    '@js': '/src/dependencies/js',
-    '@assets': '/src/dependencies/assets'
+    '@css': `${base}/css`,
+    '@js': `${base}/js`,
+    '@assets': `${base}/assets`,
+    '@icons': `${base}/assets/icons`
   },
   prod: {
     '@css': '/dependencies/css',
     '@js': '/dependencies/js',
-    '@assets': '/dependencies/assets'
+    '@assets': '/dependencies/assets',
+    '@icons': '/dependencies/assets/icons'
   }
 }
 
