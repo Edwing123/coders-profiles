@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /* fonts */
+  --font-family: 'Roboto', sans-serif;
+  --font-size: 62.5%;
+
+  /* colors */
+  --base-hue: 248;
+  --base-hue-s: 93%;
+  --base-hue-l: 58%;
+  --primary-color: hsl(var(--base-hue), var(--base-hue-s), var(--base-hue-l));
+  --white-1: #ffffff;
+  --white-2: #fff5f5;
+  --gray-1: #ebebeb;
+  --gray-2: #c0bcbc;
+  --black: #181717;
+  --cyan: #1da1f2;
+  --red: #e4405f;
+
+  /* layout dimension */
+  --layout-width: 90%;
+  --layout-padding: 5%;
+
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+/* shared styles */
+:where(a, button):focus-visible {
+  outline: solid var(--primary-color);
+  outline-offset: 0.3rem;
+  outline-width: 0.3rem;
+}
+
+.layout {
+  padding: 0 var(--layout-padding);
+}
+
+/* header component */
+.header {
+  --padding-y: 1.2rem;
+  background-color: var(--white-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+}
+
+.page-logo__image {
+  width: 150px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__link {
+  color: var(--white-2);
+  --blue: hsl(var(--base-hue), var(--base-hue-s), var(--base-hue-l));
+  background-color: var(--blue);
+  transition: background-color 100ms linear;
+
+  font-weight: bold;
+  font-size: 2.1rem;
+  text-decoration: none;
+
+  padding: 0.5em 1.2em;
+  border-radius: 0.4rem;
+}
+
+.navigation__settings-button {
+  border: none;
+  background-color: transparent;
+  width: 51px;
+  height: 51px;
+  cursor: pointer;
+  margin-left: 1.8rem;
+  transition: transform 100ms linear;
+}
+
+.navigation__settings-button__icon {
+  --blue: hsl(var(--base-hue), var(--base-hue-s), var(--base-hue-l));
+  stroke: var(--blue);
+  width: 100%;
+  height: 100%;
+}
+
+/* header buttons and links state */
+:where(.navigation__link, .navigation__settings-button):hover {
+  --base-hue-s: 93%;
+  --base-hue-l: 45%;
+}
+
+.navigation__settings-button:hover {
+  transform: scale(1.1);
+}

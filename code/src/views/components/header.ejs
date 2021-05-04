@@ -1,9 +1,10 @@
 <header class="header <%= classNames %>">
   <!-- page logo -->
-  <section class="page-logo-container">
-    <a href="/" class="page-logo-container__link">
+  <section class="page-logo">
+    <a href="/" class="page-logo__link" aria-label="go to home page">
       <img
-        class="page-logo-container__image"
+        aria-hidden="true"
+        class="page-logo__image"
         src="<%= resolve('@icons/only-text-light-logo.svg') %>"
       />
     </a>
@@ -11,8 +12,8 @@
 
   <!-- navigation -->
   <nav class="navigation">
-    <a class="navitation__button" href="/">See more profiles</a>
-    <button class="navigation__settings-button">
+    <a class="navigation__link" href="/">Go to coders list</a>
+    <button class="navigation__settings-button" aria-label="open settings window">
       <svg
         class="navigation__settings-button__icon"
         fill="none"
