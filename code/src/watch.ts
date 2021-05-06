@@ -6,7 +6,7 @@ import { exec } from 'child_process'
 
   chokidar.watch(dirsToWatch).on('change', (path) => {
     console.log(`
-    type: change,
+    type: change
     path: ${path}
     `)
 

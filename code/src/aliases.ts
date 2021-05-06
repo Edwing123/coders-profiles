@@ -8,13 +8,15 @@ export const dependencies = {
     '@css': `${base}/css`,
     '@js': `${base}/js`,
     '@assets': `${base}/assets`,
-    '@icons': `${base}/assets/icons`
+    '@icons': `${base}/assets/icons`,
+    '@images': `${base}/assets/images`
   },
   prod: {
     '@css': '/dependencies/css',
     '@js': '/dependencies/js',
     '@assets': '/dependencies/assets',
-    '@icons': '/dependencies/assets/icons'
+    '@icons': '/dependencies/assets/icons',
+    '@images': '/dependencies/assets/images'
   }
 }
 
