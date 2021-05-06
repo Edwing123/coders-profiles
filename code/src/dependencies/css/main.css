@@ -103,3 +103,48 @@
 .navigation__settings-button:hover {
   transform: scale(1.1);
 }
+
+/* profile component */
+.profile__header {
+  height: 300px;
+}
+
+.profile__cover-image {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.profile__picture-box {
+  border: 0.3rem solid var(--primary-color);
+  border-radius: 100%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 2.8rem;
+}
+
+.profile__picture-box__image {
+  width: 100%;
+  height: 100%;
+}
+
+.profile__fullname {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.profile__social-media-box__link {
+  margin-right: 2rem;
+  display: inline-block;
+}
+
+.profile__social-media-box__icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 100ms linear;
+}
+
+.profile__social-media-box__icon:hover {
+  transform: scale(1.1);
+}

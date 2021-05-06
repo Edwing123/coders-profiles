@@ -5,6 +5,62 @@
     <title><%= user.nickName %> | Profile</title>
   </head>
   <body>
-    <%- include(resolve('@components/header'), { classNames: 'layout' }) %>
+    <div id="root">
+      <%- include(resolve('@components/header'), { classNames: 'layout' }) %>
+
+      <%
+      // shorthand values
+      const coverImagePath = resolve(`@images/${user.pictures.cover}`)
+      const profileImagePath = resolve(`@images/${user.pictures.portrait}`)
+      const profileImageAlt = `${user.fullName}'s profile picture`
+      %>
+
+      <main class="main profile">
+        <!-- profile header -->
+        <header class="profile__header">
+          <div
+            class="profile__cover-image"
+            style="background-image: url('<%= coverImagePath %>')"
+          ></div>
+        </header>
+
+        <!-- profile body -->
+        <div class="profile__main layout">
+          <!-- profile picture -->
+          <div class="profile__picture-box">
+            <img
+              src="<%= profileImagePath %>"
+              alt="<%= profileImageAlt %>"
+              aria-label="<%= profileImageAlt %>"
+              class="profile__picture-box__image"
+            />
+          </div>
+
+          <!-- profile details -->
+          <section class="profile__details">
+            <h2 class="profile__fullname"><%= user.fullName %></h2>
+            <!-- social media icons -->
+            <div class="profile__social-media-box">
+              <% user.socialMedia.forEach((e) => { %>
+                <a
+                  href="<%= e.url %>"
+                  rel="noopener norreferer"
+                  aria-label="<%= `${e.name} account` %>"
+                  target="_blank"
+                  class="profile__social-media-box__link"
+                >
+                  <img
+                    src="<%= resolve(`@icons/${e.name}.png`) %>"
+                    aria-hidden="true"
+                    class="profile__social-media-box__icon"
+                    alt="<%= `${e.name} icon` %>"
+                  />
+                </a>
+              <% }) %>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
