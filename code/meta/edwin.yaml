@@ -1,0 +1,25 @@
+fullName: Edwin Evenor Garcia Valle
+nickName: Edwing123
+
+pictures:
+  cover: edwin.cover.jpg
+  portrait: edwin.portrait.jpg
+
+socialMedia:
+  -
+    name: github
+    url: https://github.com/Edwing123
+  -
+    name: twitter
+    url: https://twitter.com/edwin_evenor
+  -
+    name: instagram
+    url: https://www.instagram.com/edwing123v2
+
+bio:
+  - >
+    This is my rather simple biography.
+
+skills:
+  - >
+    I have worked with some tools.

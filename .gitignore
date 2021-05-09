@@ -4,5 +4,7 @@ node_modules/
 # generated typescript files
 bin/
 
-# generated html output
+# generated output
+dev/
+dist/
 output/
