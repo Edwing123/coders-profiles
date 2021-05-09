@@ -43,6 +43,14 @@
   padding: 0 var(--layout-padding);
 }
 
+.scale {
+  transition: transform 100ms linear;
+}
+
+.scale:hover {
+  transform: scale(1.1);
+}
+
 /* header component */
 .header {
   --padding-y: 1.2rem;
@@ -84,7 +92,6 @@
   height: 51px;
   cursor: pointer;
   margin-left: 1.8rem;
-  transition: transform 100ms linear;
 }
 
 .navigation__settings-button__icon {
@@ -98,10 +105,6 @@
 :where(.navigation__link, .navigation__settings-button):hover {
   --base-hue-s: 93%;
   --base-hue-l: 45%;
-}
-
-.navigation__settings-button:hover {
-  transform: scale(1.1);
 }
 
 /* profile component */
@@ -127,6 +130,7 @@
 .profile__picture-box__image {
   width: 100%;
   height: 100%;
+  user-select: none;
 }
 
 .profile__fullname {
@@ -142,9 +146,4 @@
 .profile__social-media-box__icon {
   width: 30px;
   height: 30px;
-  transition: transform 100ms linear;
-}
-
-.profile__social-media-box__icon:hover {
-  transform: scale(1.1);
 }
