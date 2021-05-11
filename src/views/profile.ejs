@@ -1,0 +1,62 @@
+<%# Profile page name of the generated html will change with the name of the user %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= parse.name %> | Profile</title>
+
+	<!-- LINKS -->
+	<link rel="stylesheet" href="../css/index.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="topnav">
+			<a href="./index.html" class="p-1 nav-item">
+				<img src="../img/only-text-light-logo.svg" class="img-nav">
+			</a>
+			<div class="nav-item d-flex align-items-center">
+				<a href="#" class="btn-primary nav-item mr-2">Coders list</a>
+				<a href="./index.html" class="p-1 nav-item mr-2 conf-btn">
+					<img src="../img/conf.svg" class="img-nav">
+				</a>
+			</div>
+		</div>
+		<header class="profile-header" style="background-image: url('<%= parse.img_bg %>');">
+			<div class="profile-img">
+				<img src="<%= parse.img_user %>">
+			</div>
+		</header>
+		<h1 class="main-name"><%= parse.name %></h1>
+		<div class="social-networks">
+			<% if(parse.social.github) { %>
+				<a href="<%= parse.social.github %>" class="social" target="new">
+					<img src="../img/social/iconfinder_github_317712.png" alt="">
+				</a>
+			<% } %> <% if(parse.social.stackoverflow) { %>
+				<a href="<%= parse.social.stackoverflow %>" class="social" target="new">
+					<img src="../img/social/iconfinder_stackoverflow_1220346.png" alt="">
+				</a>
+			<% } %> <% if(parse.social.twitter) { %>
+				<a href="<%= parse.social.twitter %>" class="social" target="new">
+					<img src="../img/social/iconfinder_1_Twitter_colored_svg_5296514.png" alt="">
+				</a>
+			<% } %> <% if(parse.social.facebook) { %>
+				<a href="<%= parse.social.facebook %>" class="social" target="new">
+					<img src="../img/social/iconfinder_1_Facebook_colored_svg_copy_5296499.png" alt="">
+				</a>
+			<% } %> <% if(parse.social.instagram) { %>
+				<a href="<%= parse.social.instagram %>" class="social" target="new">
+					<img src="../img/social/iconfinder_1_Instagram_colored_svg_1_5296765.png" alt="">
+				</a>
+			<% } %> <% if(parse.social.pinterest) { %>
+				<a href="<%= parse.social.pinterest %>" class="social" target="new">
+					<img src="../img/social/iconfinder_1_Pinterest_colored_svg_5296503.png" alt="">
+				</a>
+			<% } %>
+		</div>
+	</div>
+</body>
+</html>

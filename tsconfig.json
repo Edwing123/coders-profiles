@@ -1,12 +1,13 @@
 {
   "compilerOptions": {                      
-    "target": "ESNext",                                
+    "target": "ES6",                                
     "module": "commonjs",                         
     "sourceMap": true,                           
-    "outDir": "./bin",            
+    "outDir": "./build/js",            
     "strict": true,               
     "noImplicitAny": true,        
     "strictNullChecks": true,     
     "strictFunctionTypes": true,  
   }
 }
+// Agradecimientos especiales a Edwin por crear las configuraciónes necesarias para este archivo de configuración

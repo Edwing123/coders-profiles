@@ -1,0 +1,6 @@
+{
+  "watch": ["src/ts/**/*.ts", "src/views/**/*.ejs", "src/scss/**/*.scss", "meta/**/*.yaml", "meta/**/*.yml"],
+  "ext": "ts,json,ejs,scss,yaml,yml",
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "sass src/scss:build/css && tsc && node build/js/index.js"
+}

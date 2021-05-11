@@ -1,0 +1,40 @@
+{
+  "name": "coders-profiles",
+  "version": "0.0.1",
+  "description": "Página por lado jesjack creada para Edwin para perseverar perfil de programadores.",
+  "main": "./build/js/index.js",
+  "scripts": {
+    "test": "tsc && node ./build/js/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edwing123/coders-profiles.git"
+  },
+  "keywords": [
+    "profile",
+    "info"
+  ],
+  "author": "jesjack & Edwin García",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Edwing123/coders-profiles/issues"
+  },
+  "homepage": "https://github.com/Edwing123/coders-profiles#readme",
+  "contributors": [
+    {
+      "name": "Edwin Garcia (Edwing123)",
+      "email": "egarciavalla2014@gmail.com"
+    },
+    {
+      "name": "Edgar Moreno (Jesjack)",
+      "email": "jesjack25_03@hotmail.com"
+    }
+  ],
+  "dependencies": {
+    "@types/ejs": "^3.0.6",
+    "@types/node": "^14.14.41",
+    "ejs": "^3.1.6",
+    "nodemon": "^2.0.7",
+    "yaml": "^1.10.2"
+  }
+}
